@@ -1,0 +1,126 @@
+body {
+  width: 350px;
+  height: 575px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.bookmark {
+  display: block;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 25px;
+  margin: 0px;
+  transition: border-right 0.5s, border-left 0.5s;
+  height: 30px;
+}
+
+.bookmark:hover {
+  background: #eee;
+}
+
+.bookmarkURL {
+  display: inline-block;
+  max-width: 125px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-left: 30px;
+  color: #aaa;
+  font-size: small;
+}
+
+.bookmarkName {
+  display: inline-block;
+  max-width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.folderDescription {
+  display: inline;
+  position: absolute;
+  right: 50px;
+}
+
+.folder {
+  display: block;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 26px;
+  transition: border-right 0.5s, border-left 0.5s;
+}
+
+.folder .bookmark {
+  padding-left: 40px;
+  margin-left: -25px;
+  transition: display 1s;
+}
+
+.folderName {
+  font-weight: bold;
+}
+
+.deleteBookmark {
+  float: right;
+  position: relative;
+  right: 5px;
+  bottom: 2px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.buttonBar {
+  position: absolute;
+  bottom: 1px;
+}
+
+.newBookmarkBar {
+  position: absolute;
+  bottom: 40px;
+  display: inline;
+}
+
+.newFolderBar {
+  position: absolute;
+  bottom: 40px;
+  display: inline;
+}
+
+.WebsiteInput {
+  width: 42%;
+  margin: 0px;
+  padding: 7px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.FolderInput {
+  width: 275px;
+  margin: 0px;
+  padding: 7px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.FolderSelect {
+  width: 43%;
+  margin: 0px;
+}
+
+.AddBookmark {
+  margin: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.AddFolder {
+  margin-left: 28px;
+  padding-left: 14px;
+  padding-right: 15px;
+}

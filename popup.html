@@ -1,0 +1,40 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+
+<head>
+  <title>Bookmarks</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Bookmarks</h1>
+
+  <div class="container">
+  </div>
+  <div class="newBookmarkBar" style="display: none;">
+    <input class="WebsiteInput" type="text" placeholder="Website" />
+    <select class="w3-select FolderSelect" name="option">
+        <option value="1">Bookmarks</option>
+      </select>
+    <button class="w3-button w3-green AddBookmark"><i class="fa fa-plus"></i></button>
+  </div>
+  <div class="newFolderBar" style="display: none;">
+    <input class="FolderInput" type="text" placeholder="New Folder" />
+    <button class="w3-button w3-green AddFolder"><i class="fa fa-plus"></i></button>
+  </div>
+  <div class="buttonBar w3-bar">
+    <button class="w3-bar-item w3-button NewBookmark" style="width: 50%"><i class="fa fa-star-o"></i></button>
+    <button class="w3-bar-item w3-button NewFolder" style="width: 50%"><i class="fa fa-folder-open-o"></i></button>
+  </div>
+  <script src="jquery-3.2.1.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+
+</html>

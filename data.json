@@ -1,0 +1,56 @@
+{
+  "_id": {
+    "$oid": "5a12182af36d2815c109125d"
+  },
+  "bookmarks": [{
+      "title": "Google",
+      "url": "www.google.com"
+    },
+    {
+      "title": "Youtube",
+      "url": "www.youtube.com"
+    },
+    {
+      "title": "Amazon",
+      "url": "www.amazon.com"
+    },
+    {
+      "title": "Cheat Sheet",
+      "url": "https://docs.emmet.io/cheat-sheet/"
+    }],
+
+  "Coding": [{
+      "title": "Github",
+      "url": "www.github.com"
+    },
+    {
+      "title": "Heroku",
+      "url": "www.heroku.com"
+    },
+    {
+      "title": "Stack Overflow",
+      "url": "www.stackoverflow.com"
+    },
+    {
+      "title": "jQuery",
+      "url": "http://jquery.com/"
+    },
+    {
+      "title": "mLab: Cloud-hosted MongoDB",
+      "url": "https://mlab.com/databases/bookmark-extension/collections/bookmarks?_id=5a12182af36d2815c109125d&saved=1511212861205&q=&s=&f=&pageSize=10&pageNum=0"
+    },
+    {
+      "title": "How do I make the first letter of a string uppercase in JavaScript? - Stack Overflow",
+      "url": "https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript"
+    }],
+
+  "School": [{
+      "title": "Big Nate",
+      "url": "www.gocomics.com/bignate"
+    },
+    {
+      "title": "jQuery.ajax() | jQuery API Documentation",
+      "url": "https://api.jquery.com/jQuery.ajax/"
+    }
+  ]
+}
