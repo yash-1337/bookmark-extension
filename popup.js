@@ -136,6 +136,15 @@ function LoadBookmarks(data) {
     $(this).parent().css("background", "white");
   });
 
+  $(".container").on("click", ".bookmark", function() {
+    let url = $(this).children('.bookmarkURL').text();
+    if (!/^https?:\/\//i.test(url)) {
+      url = 'http://' + url;
+    }
+    chrome.tabs.update({url: url});
+    window.close();
+  });
+
   $(".container").on("click", ".deleteBookmark", function(e) {
     let title = $(this).siblings('.bookmarkName').text();
     let url = $(this).siblings('.bookmarkURL').text();
