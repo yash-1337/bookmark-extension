@@ -92,14 +92,14 @@ function LoadBookmarks(data) {
     });
   });
 
-  $('.bookmark').on("mouseenter", ".bookmarkURL", function() {
+  $('.container').on("mouseenter", ".bookmarkURL", function() {
     let $this = $(this);
     if (this.offsetWidth < this.scrollWidth && !$this.attr('title')) {
       $this.attr('title', $this.text());
     }
   });
 
-  $('.bookmark').on("mouseenter", ".bookmarkURL", function() {
+  $('.container').on("mouseenter", ".bookmarkURL", function() {
     let $this = $(this);
     if (this.offsetWidth < this.scrollWidth && !$this.attr('title')) {
       $this.attr('title', $this.text());
