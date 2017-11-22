@@ -2,7 +2,6 @@ let bookmarkData;
 
 $.ajax({
   url: "https://bookmark-extension.herokuapp.com/getBookmarks",
-  async: true,
   success: function(data) {
     LoadBookmarks(data);
   }
@@ -34,8 +33,10 @@ function LoadBookmarks(data) {
   $(".NewBookmark").click(function() {
     $('.newBookmarkBar').toggle();
     $('.newFolderBar').hide();
-    chrome.tabs.getSelected(null, function(tab) {
-      $('.WebsiteInput').val(tab.title);
+    chrome.tabs.query({
+      active: true
+    }, function(tab) {
+      $('.WebsiteInput').val(tab[0].title);
     });
   });
   $(".NewFolder").click(function() {
@@ -63,10 +64,12 @@ function LoadBookmarks(data) {
   });
 
   $('.AddBookmark').click(function() {
-    chrome.tabs.getSelected(null, function(tab) {
+    chrome.tabs.query({
+      active: true
+    }, function(tab) {
       let title = $('.WebsiteInput').val();
       let folder = $('.FolderSelect option:selected').text();
-      let url = tab.url;
+      let url = tab[0].url;
 
       let data = {
         title: title,
@@ -136,13 +139,14 @@ function LoadBookmarks(data) {
     $(this).parent().css("background", "white");
   });
 
-  $(".container").on("click", ".bookmark", function() {
-    let url = $(this).children('.bookmarkURL').text();
-    if (!/^https?:\/\//i.test(url)) {
-      url = 'http://' + url;
+  $(".container").on("click", ".bookmark", function(e) {
+    if ($(e.target).hasClass('deleteBookmark')) {
+      return;
+    } else {
+      let url = $(this).children('.bookmarkURL').text();
+      chrome.tabs.update({url: url});
+      window.close();
     }
-    chrome.tabs.update({url: url});
-    window.close();
   });
 
   $(".container").on("click", ".deleteBookmark", function(e) {
