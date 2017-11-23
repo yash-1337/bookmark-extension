@@ -12,7 +12,7 @@ function LoadBookmarks(data) {
   $.each(bookmarkData, function(key, value) {
     if (key != "Bookmarks" && key != "_id") {
       let title = key;
-      $('.container').append("<div class='folder' id='" + title + "'><span class='folderName'>" + title + "</span><span class='folderDescription w3-badge w3-small w3-green'>" + value.length + "</span></div>");
+      $('.container').append("<div class='folder' id='" + title + "'><span class='folderName'>" + title + "</span><span class='folderDescription w3-badge w3-small w3-green'>" + value.length + "</span><i class='deleteFolder w3-button w3-round-large w3-hover-red fa fa-times'></i></div>");
       $('.FolderSelect').append("<option>" + title + "</option>");
 
       $.each(bookmarkData[key], function(index, value) {
@@ -53,7 +53,7 @@ function LoadBookmarks(data) {
     if (folder.length > 0) {
       $.post("https://bookmark-extension.herokuapp.com/addFolder", data).done(function(data) {
         if (data.title) {
-          $('.folder').last().after("<div class='folder' id='" + data.title + "'><span class='folderName'>" + data.title + "</span><span class='folderDescription w3-badge w3-small w3-green'>" + 0 + "</span></div>");
+          $('.folder').last().after("<div class='folder' id='" + data.title + "'><span class='folderName'>" + data.title + "</span><span class='folderDescription w3-badge w3-small w3-green'>" + 0 + "</span><i class='deleteFolder w3-button w3-round-large w3-hover-red fa fa-times'></i></div>");
           $('.FolderSelect').append("<option>" + data.title + "</option>");
           $('.newFolderBar').hide();
         } else {
@@ -110,18 +110,22 @@ function LoadBookmarks(data) {
   });
 
   $(".container").on("click", ".folder", function(e) {
-    let that = $(this);
-    $(that).css('background-color', 'white');
-    $(this).children('.bookmark').toggle('easing', function() {
-      if ($(that).children('.bookmark').css('display') == 'block') {
+    if ($(e.target).hasClass('deleteFolder')) {
+      return;
+    } else {
+      let that = $(this);
+      $(that).css('background-color', 'white');
+      $(this).children('.bookmark').toggle('easing', function() {
+        if ($(that).children('.bookmark').css('display') == 'block') {
 
-        $(that).css('border-left', '5px solid #4CAF50');
-        $(that).css('border-right', '6px solid #4CAF50');
-      } else {
-        $(that).css('border-left', '0px solid #4CAF50');
-        $(that).css('border-right', '0px solid #4CAF50');
-      }
-    });
+          $(that).css('border-left', '5px solid #4CAF50');
+          $(that).css('border-right', '6px solid #4CAF50');
+        } else {
+          $(that).css('border-left', '0px solid #4CAF50');
+          $(that).css('border-right', '0px solid #4CAF50');
+        }
+      });
+    }
 
   });
 
@@ -173,6 +177,24 @@ function LoadBookmarks(data) {
         }
         that.parent().remove();
 
+      }
+    });
+
+  });
+
+  $(".container").on("click", ".deleteFolder", function(e) {
+    let folder = $(this).parent().attr('id');
+    console.log(folder);
+    let data = {
+      folder: folder
+    }
+    let that = $(this);
+    $.ajax({
+      url: 'https://bookmark-extension.herokuapp.com/removeFolder',
+      type: 'DELETE',
+      data: data,
+      success: function(data) {
+        that.parent().remove();
       }
     });
 

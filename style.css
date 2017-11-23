@@ -75,6 +75,17 @@ h1 {
   padding-right: 5px;
 }
 
+.deleteFolder {
+  float: right;
+  position: relative;
+  right: 5px;
+  bottom: 2px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 .buttonBar {
   position: absolute;
   bottom: 1px;
