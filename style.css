@@ -7,6 +7,16 @@ h1 {
   text-align: center;
 }
 
+img.center {
+    display: block;
+    margin: 10% auto;
+}
+
+.container {
+  height: 470px;
+  overflow-y: auto;
+}
+
 .bookmark {
   display: block;
   padding-top: 5px;
@@ -52,6 +62,7 @@ h1 {
   padding-bottom: 5px;
   padding-left: 26px;
   transition: border-right 0.5s, border-left 0.5s;
+  position: relative;
 }
 
 .folder .bookmark {
@@ -134,4 +145,25 @@ h1 {
   margin-left: 28px;
   padding-left: 14px;
   padding-right: 15px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ddd; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.BorderTop {
+  box-shadow: 0px -3px 3px -1px #888888;
 }
