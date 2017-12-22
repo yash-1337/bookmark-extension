@@ -55,17 +55,6 @@ function LoadBookmarks(data) {
     }
     
   };
-  // function UpdateNewBar(){
-  //   if ($(".container").prop('scrollHeight') > $(".container").height() ) {
-  //     $('.buttonBar').removeClass('BorderTop');
-  //     $('.newBookmarkBar').addClass('BorderTop');
-  //     $('.newFolderBar').addClass('BorderTop');
-  //   }else{
-  //     $('.newBookmarkBar').removeClass('BorderTop');
-  //     $('.newFolderBar').removeClass('BorderTop');
-  //   }
-  // }
-  
 
   UpdateButtonBar();
 
